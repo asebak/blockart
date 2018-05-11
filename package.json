@@ -1,13 +1,14 @@
 {
-  "name": "hackathon-starter",
-  "version": "5.0.0",
-  "description": "A boilerplate for Node.js web applications",
+  "name": "blockart",
+  "version": "1.0.0",
+  "description": "blockchain application for artwork",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "https://github.com/asebak/blockart.git"
   },
-  "author": "Sahat Yalkabov",
+  "author": "Ahmad Sebak",
   "license": "MIT",
+  "main": "app.js",
   "scripts": {
     "postinstall": "npm rebuild node-sass",
     "start": "node app.js",
