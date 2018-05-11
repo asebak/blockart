@@ -67,10 +67,12 @@ Artwork.prototype = {
         var userId = Blockchain.transaction.from;
              
         var item = new ArtItem();
+
         item.art = {
             userId: userId,
             title: title,
-            pic: pic
+            pic: pic,
+            itemId: itemId
         };
         
         this.art.put(itemId, item);

@@ -3,10 +3,11 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const User = require('../models/User');
-const Nas = require('nebulas');
 const fs = require('fs')
 const randomBytesAsync = promisify(crypto.randomBytes);
 const NebInvoke = require('../smartcontracts/invoke');
+const Nas = require('nebulas');
+
 /**
  * GET /login
  * Login page.

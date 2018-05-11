@@ -122,7 +122,7 @@ try{
                   }
                  }
                }
-               res.render('art/list', {
+               res.render('art/myart', {
                 title: 'My Artwork',
                 data: usersArt,
                 env: {
@@ -131,7 +131,7 @@ try{
                 }
               });
              }else{
-             res.render('art/list', {
+             res.render('art/myart', {
               title: 'My Artwork',
               data: [],
               env: {
@@ -142,7 +142,7 @@ try{
           }
             }, function(error){
               req.flash('errors', { msg: 'Page could not be loaded : ' + err.message });
-              res.render('art/list', {
+              res.render('art/myart', {
                 title: 'My Artwork',
                 data: usersArt,
                 env: {
@@ -154,7 +154,14 @@ try{
         
     } catch (err) {
       req.flash('errors', { msg: 'Page could not be loaded : ' + err.message });
-      res.redirect('/myart');
+      res.render('art/myart', {
+        title: 'My Artwork',
+        data: usersArt,
+        env: {
+          endpoint: process.env.NAS_NETWORK_ENDPOINT,
+          chain: process.env.NAS_NETWORK_CHAINID
+        }
+      });    
     }
   };
 

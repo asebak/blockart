@@ -1,5 +1,9 @@
 function onFileChange(e) {
     var file = e.files[0];
+    if(file.size > 70000){
+        alert("File is too big!");
+        return
+    };
     var reader = new FileReader();
     if(file){
     reader.readAsDataURL(file);

@@ -33,6 +33,7 @@ dotenv.load({ path: '.env.testnet' });
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const artworkController = require('./controllers/artwork');
+const donationController = require('./controllers/donate');
 
 /**
  * API keys and Passport configuration.
@@ -120,7 +121,8 @@ app.get('/submitartwork', artworkController.getSubmitArt);
 app.post('/submitartwork', artworkController.postSubmitArt);
 app.get('/art/:artId', artworkController.getArt);
 app.get('/myart', artworkController.getMyArtList);
-
+app.get('/donate/:artId', donationController.getDonate);
+app.post('/donate', donationController.postDonate);
 /**
  * Error Handler.
  */

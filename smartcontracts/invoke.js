@@ -60,8 +60,12 @@ function NebInvoke(contractId, addressId, account) {
         } else {
           var balance  = Nas.Unit.fromBasic(Nas.Utils.toBigNumber(resp.balance), "nas").toNumber();
           var nonce = parseInt(resp.nonce || 0) + 1
-
-          var contract = {function: method, args: callArgs}
+          var contract = {};
+          if(method != null && callArgs != null){
+          contract = {function: method, args: callArgs}
+          } else{
+            contract = null;
+          }
          var gTx = new Nas.Transaction(chainId, account, toAddress, 
             Nas.Unit.nasToBasic(Nas.Utils.toBigNumber(amount)), parseInt(nonce), gasprice, gaslimit, contract);
             var response;
