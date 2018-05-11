@@ -3,6 +3,8 @@ extends ../layout
 block content
   .page-header
     h3 Submit Artwork
+    .alert.alert-danger.fade.in
+        div
   form.form-horizontal(id='submitart', action='/submitartwork', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group

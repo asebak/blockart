@@ -24,8 +24,8 @@ try{
   acc = acc.fromKey(req.user.key, req.body.password); 
   var nebInvoke = new NebInvoke(toAddress, fromAddress, acc);
   nebInvoke.txCall("submit", callArgs, amount, function(response){
-      req.flash('success', { msg: 'Artwork has been upload with id: ' + response.txhash + ".  It might take a moment to process..." });
-      res.redirect('/art/' + response.txhash);
+      req.flash('success', { msg: 'Artwork has been uploaded with id: ' + response.txhash + ".  It might take a moment to process..." });
+      res.redirect('/');
   }, function(error){
     req.flash('errors', { msg: 'Artwork could not be uploaded : ' + error.message });
     res.redirect('/submitartwork');

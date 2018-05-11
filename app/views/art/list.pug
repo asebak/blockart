@@ -8,11 +8,8 @@ block content
                 li
                     img(alt=d.title, src=d.pic)
                     p #{d.title} #{d.userId}
-                    if user
-                        if user.addressId !== d.userId
                             .col-sm-offset-3.col-sm-4
-                                a(data-toggle="modal" href="/donate/"+ d.itemId class="btn btn-primary") Donate
-                                //include ../partials/donate
+                                a(data-toggle="modal" href="/donate/"+ d.itemId class="btn btn-primary") View
                     
     
     
