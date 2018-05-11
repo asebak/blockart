@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  .page-header
+  if !address
+      h3 Sign up
+      form.form-horizontal(id='signup-form', method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        .form-group
+          label.col-sm-3.control-label(for='password') Password
+          .col-sm-7
+            input.form-control(type='password', name='password', id='password', placeholder='Password', required)
+        .form-group
+          label.col-sm-3.control-label(for='confirmPassword') Confirm Password
+          .col-sm-7
+            input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', required)
+        .form-group
+          .col-sm-offset-3.col-sm-7
+            button.btn.btn-success(type='submit')
+              i.fas.fa-user-plus.fa-sm
+              | Sign Up
+  else
+
+          h4(class="modal-title") Account created successfully
+          br
+          button.btn.btn-warning(onClick="javascript:saveAs(new Blob(['" + key + "'], { type: 'application/json; charset=utf-8' }), '"+ address +"')") Download Keystore
+          br
+          br
+          p You will need this file and your password to login.

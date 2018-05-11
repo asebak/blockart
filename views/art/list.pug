@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Artwork
+        if data
+         ul(id="artworkList")
+            each d in data
+                li
+                    img(alt=d.title, src=d.pic)
+                    p #{d.title} by #{d.userId}
+
+    script(src='/js/artlist.js')

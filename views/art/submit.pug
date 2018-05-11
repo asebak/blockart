@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Submit Artwork
+  form.form-horizontal(id='submitart', action='/submitartwork', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='title') Title
+      .col-sm-7
+        input.form-control(type='text', name='title', id='title', value="", placeholder="title", required)
+    .form-group(id="uploadform")
+      label.col-sm-3.control-label(for='artwork') File
+      .col-sm-7
+        input.form-control(type='file', name='artwork',enctype="multipart/form-data", onchange="onFileChange(this)", id='artwork',accept=accept="image/*")
+        input.form-control(type='hidden', name='artworkbytes', id='artworkbytes')
+    .form-group
+            .col-sm-offset-3.col-sm-4
+             a(data-toggle="modal" href="#passwordModal" class="btn btn-primary") Submit
+
+    include ../partials/passwordconfirm
+
+
+    script(src='/js/art.js')
+
+
+    

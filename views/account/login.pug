@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  script(src='/js/login.js')
+  .page-header
+    h3 Sign in
+  form.form-horizontal(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='keystore') Keystore
+      .col-sm-7
+        input.form-control(type='file', name='keystore',enctype="multipart/form-data", id='keystore', placeholder='', onchange='keyStoreChange(this)', required)
+    .form-group
+      label.col-sm-3.control-label(for='password') Password
+      .col-sm-7
+        input.form-control(type='password', name='password', id='password', placeholder='Password', required)
+        input.form-control(type='hidden', name='jsoncontents', id='jsoncontents')
+    .form-group
+      .col-sm-offset-3.col-sm-7
+        button.col-sm-3.btn.btn-primary(type='submit')
+          i.far.fa-user.fa-sm
+          | Login
