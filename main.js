@@ -12,7 +12,7 @@ function createWindow() {
 	icon: __dirname + 'app/public/images/logo2.png'
   });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
-  //brownsermainWindowmainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
   mainWindow.on('close', () => {
     mainWindow.webContents.send('stop-server');
   });
