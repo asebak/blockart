@@ -30,7 +30,7 @@ exports.getLogin = (req, res) => {
  * Sign in using email and password.
  */
 exports.postLogin = (req, res, next) => {
-  req.assert('keystore', 'Email is not valid').notEmpty();
+  req.assert('jsoncontents', 'Keystore is not valid').notEmpty();
   req.assert('password', 'Password cannot be blank').notEmpty();
 
 
@@ -108,9 +108,12 @@ exports.postSignup = (req, res, next) => {
   var account = Nas.Account.NewAccount();
   var address = account.getAddressString();
   var keyStr = account.toKeyString(req.body.password);
+  var name = account.toKeyString(req.body.name);
+
   res.render('account/signup', { 
     address: address,
     key: keyStr,
+    name: name,
     env: {
       endpoint: process.env.NAS_NETWORK_ENDPOINT,
       chain: process.env.NAS_NETWORK_CHAINID

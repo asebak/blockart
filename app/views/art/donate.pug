@@ -5,6 +5,7 @@ block content
     h5.text-center By: #{data.userId}
     br
     img(id="imgcontrol", src=data.pic, width="50%", height="50%", class="img-rounded center-block")
+    br
     if user
       if user.addressId !== data.userId
         form.form-horizontal(, action='/donate', method='POST')
@@ -21,5 +22,5 @@ block content
               .col-sm-offset-3.col-sm-4
                 a(data-toggle="modal" href="#passwordModal" class="btn btn-primary") Donate
 
-      include ../partials/passwordconfirm
+            include ../partials/passwordconfirm
 

@@ -70,7 +70,7 @@ try{
       req.flash('success', { msg: 'Donation has been made with id: ' + response.txhash });
       res.redirect('/');
   }, function(error){
-    req.flash('errors', { msg: 'Artwork could not be uploaded : ' + error.message });
+    req.flash('errors', { msg: 'Donation could not be made : ' + error.message });
     res.redirect('/');
   });
 } catch (error) {

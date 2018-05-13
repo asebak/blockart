@@ -1,4 +1,10 @@
-
+$(function(){
+    $("#submit_link").on('click', function(e){
+        e.preventDefault();
+        $("#upload:hidden").trigger('click');
+    });
+  });
+  
 function keyStoreChange(e){
     var file = e.files[0],
     fr = new FileReader();

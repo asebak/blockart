@@ -20,6 +20,39 @@ exports.index = (req, res) => {
 
 };
 
+exports.addressIdToUsername = function(id, callback){
+  try {
+    
+    var Neb = Nas.Neb;
+    var neb = new Neb();
+ 
+          var toAddress = process.env.NAS_USER_CONTRACT_ID;
+          var amount = "0"
+         var callArgs = "[\"" + id  + "\"]";   
+ 
+          var nebInvoke = new NebInvoke(toAddress, this.account.getAddressString(), this.account.getAddressString());
+          nebInvoke.rpcCall("get", callArgs, amount, function(response){
+            if(response.result != null && response.result != "null"){
+              var usersArt = [];
+              var obj = JSON.parse(response.result);
+              if(obj){
+                callBack(obj.name) 
+              }else{
+              callBack({});
+              }
+            }else{
+         
+             callBack([]);
+         }
+           }, function(error){
+             callBack([]);
+           });
+       
+   } catch (err) {
+     callBack([]);
+   }
+};
+
 exports.getArtwork= function(id, callBack) {
   try {
    // var acc = account.fromAddress(req.user.addressId);

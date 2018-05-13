@@ -6,10 +6,15 @@ block content
     h3 Sign in
   form.form-horizontal(method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
-    .form-group
-      label.col-sm-3.control-label(for='keystore') Keystore
-      .col-sm-7
-        input.form-control(type='file', name='keystore',enctype="multipart/form-data", id='keystore', placeholder='', onchange='keyStoreChange(this)', required)
+    .form-group(class="center-block")
+        .text-center
+                  input#upload(type='file', onchange="keyStoreChange(this)")
+                  a(href="" id="submit_link",class="btn btn-primary") Keystore File
+                  input.form-control(type='hidden', name='keystore', id='keystore')
+    //.form-group
+      //label.col-sm-3.control-label(for='keystore') Keystore
+      //.col-sm-7
+        //input.form-control(type='file', name='keystore',enctype="multipart/form-data", id='keystore', placeholder='', onchange='keyStoreChange(this)', required)
     .form-group
       label.col-sm-3.control-label(for='password') Password
       .col-sm-7
