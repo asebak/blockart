@@ -1,5 +1,14 @@
 $('.alert-danger').hide();
 $('#imagePreview').hide();
+
+$(function(){
+  $("#submit_link").on('click', function(e){
+      e.preventDefault();
+      $("#upload:hidden").trigger('click');
+  });
+});
+
+
 function onFileChange(e) {
   let file = e.files[0];
   if (file.size > 70000) {

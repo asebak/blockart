@@ -6,19 +6,22 @@ block content
         div
   form.form-horizontal(id='submitart', action='/submitartwork', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
+    br
     img(id="imagePreview", width="200px", height="200px", class="img-rounded center-block")
+    br
+    .form-group(class="center-block")
+        .text-center
+                  input#upload(type='file', onchange="onFileChange(this)")
+                  a(href="" id="submit_link",class="btn btn-primary") Upload File
+                  input.form-control(type='hidden', name='artworkbytes', id='artworkbytes')
+    br
     .form-group
       label.col-sm-3.control-label(for='title') Name of Artwork
       .col-sm-7
         input.form-control(type='text', name='title', id='title', value="", placeholder="Title", required)
-    .form-group(id="uploadform")
-      label.col-sm-3.control-label(for='artwork') File
-      .col-sm-7
-        input.form-control(type='file', name='artwork',enctype="multipart/form-data", onchange="onFileChange(this)", id='artwork',accept=accept="image/*")
-        input.form-control(type='hidden', name='artworkbytes', id='artworkbytes')
     .form-group
             .col-sm-offset-3.col-sm-4
-              a(data-toggle="modal" href="#passwordModal" class="btn btn-primary") Upload
+              a(data-toggle="modal" href="#passwordModal" class="btn btn-primary") Submit
 
     include ../partials/passwordconfirm
 
