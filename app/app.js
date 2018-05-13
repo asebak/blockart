@@ -27,7 +27,7 @@ const upload = multer({ dest: path.join(__dirname, 'uploads') });
  */
 //dotenv.load({ path: '.env.testnet' });
 
-dotenv.load({ path: path.join(__dirname, '.env.testnet') });
+dotenv.load({ path: path.join(__dirname, '.env.mainnet') });
 
 /**
  * Controllers (route handlers).

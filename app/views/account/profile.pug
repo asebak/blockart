@@ -10,7 +10,7 @@ block content
             .col-sm-7
                 .col-sm-1
                   img(id="imgcontrol", src=user.profile.picture, class='profile center-block', width='50', height='50')
-                .col-sm-6(style="margin-top: 12px")
+                .col-sm-6(style="margin-top: 12px; margin-left: 12px")
                   input#upload(type='file', onchange="onFileChange(this)")
                   a(href="" id="upload_link") Choose File
                   input.form-control(type='hidden', name='picturebytes', id='picturebytes', value=user.profile.picture)
