@@ -1,10 +1,10 @@
 extends ../layout
 
 block content
-  .page-header
-    h3 #{data.title}
+    h4.text-center #{data.title}
+    h5.text-center By: #{data.userId}
     br
-    img(id="imgcontrol", src=data.pic, width="50%", height="50%")
+    img(id="imgcontrol", src=data.pic, width="50%", height="50%", class="img-rounded center-block")
     if user
       if user.addressId !== data.userId
         form.form-horizontal(, action='/donate', method='POST')

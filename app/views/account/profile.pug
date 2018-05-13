@@ -1,11 +1,20 @@
 extends ../layout
 
 block content
-  .page-header
+  h3.text-center My Account
   script(src='/js/profile.js')
-    h3 Profile Information
   form.form-horizontal(id='profileInfo', action='/account/profile', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+            label.col-sm-3.control-label Avatar
+            .col-sm-7
+                .col-sm-1
+                  img(id="imgcontrol", src=user.profile.picture, class='profile center-block', width='50', height='50')
+                .col-sm-6(style="margin-top: 12px")
+                  input#upload(type='file')
+                  a(href="" id="upload_link") Choose File
+                  //input.form-control(type='file', name='picture',enctype="multipart/form-data", onchange="onFileChange(this)", id='picture',accept="image/*")
+                  input.form-control(type='hidden', name='picturebytes', id='picturebytes', value=user.profile.picture)
     .form-group
       label.col-sm-3.control-label(for='addressId') Id
       .col-sm-7
@@ -18,18 +27,11 @@ block content
             label.col-sm-3.control-label(for='name') Name
             .col-sm-7
               input.form-control(type='text', name='name', id='name', value=user.profile.name)
-    .form-group
-            label.col-sm-3.control-label Avatar
-            .col-sm-7
-                .col-sm-1
-                  img(id="imgcontrol", src=user.profile.picture, class='profile', width='50', height='50')
-                .col-sm-6
-                  input.form-control(type='file', name='picture',enctype="multipart/form-data", onchange="onFileChange(this)", id='picture',accept="image/*")
-                  input.form-control(type='hidden', name='picturebytes', id='picturebytes', value=user.profile.picture)
+
 
     .form-group
             .col-sm-offset-3.col-sm-4
-             a(data-toggle="modal" href="#passwordModal" class="btn btn-primary") Update
+              a(data-toggle="modal" href="#passwordModal" class="btn btn-primary") Update
 
     include ../partials/passwordconfirm
 

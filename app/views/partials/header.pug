@@ -2,7 +2,7 @@
   .container
     .navbar-header
       a( href='/')
-      img(src='/images/logo.png' width='20%', height='20%')
+        img(src='/images/logo.png' width='50%', height='50%', href='/')
       button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
         span.sr-only Toggle navigation
         span.icon-bar
@@ -11,8 +11,6 @@
       a.navbar-brand(href='/')
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        li(class=(title === 'Home') ? 'active' : undefined)
-          a(href='/') Home
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=(title === 'Login') ? 'active' : undefined)
@@ -20,17 +18,16 @@
           li(class=(title === 'Create Account') ? 'active' : undefined)
             a(href='/signup') Create Account
         else
+          a.text-left(id="submitArt", href="/submitartwork" class="btn btn-primary", style="float: left;margin-top: 10px;") Submit Art
           li.dropdown(class=(title === 'Account Management') ? 'active' : undefined)
             a.dropdown-toggle(href='#', data-toggle='dropdown')
               if user.profile.picture
                 img(src=user.profile.picture)
               else
                 img(src=user.profile.picture)
-              span= user.profile.name || user.email || user.id
+              //span= user.profile.name || user.email || user.id
               i.caret
             ul.dropdown-menu
-              li
-                a(href='/submitartwork') Submit Art
               li
                 a(href='/myart') My Art
               li.divider
@@ -39,7 +36,3 @@
               li.divider
               li
                 a(href='/logout') Logout
-br
-br
-br
-br

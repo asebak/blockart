@@ -1,5 +1,6 @@
 const Nas = require('nebulas');
 const NebInvoke = require('../smartcontracts/invoke');
+this.account = Nas.Account.NewAccount();
 
 exports.getDonate = (req, res) => {
     var artId = req.params.artId;
@@ -18,7 +19,12 @@ exports.getDonate = (req, res) => {
 
   exports.getArtwork= function(req, txId, callBack) {
     try {
-     var id = req.user.addressId;
+      var id = "";
+      if(req.user){
+     id = req.user.addressId;
+      } else{
+        id = this.account.getAddressString();
+      }
      
      var Neb = Nas.Neb;
      var neb = new Neb();

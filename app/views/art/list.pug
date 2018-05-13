@@ -1,17 +1,18 @@
 block content
-  .page-header
-    h3 Artwork
         br
         if data
          ul(id="artworkList")
             each d in data
                 li
-                    img(alt=d.title, src=d.pic)
-                    p #{d.title} #{d.userId}
-                            .col-sm-offset-3.col-sm-4
-                                a(data-toggle="modal" href="/donate/"+ d.itemId class="btn btn-primary") View
+                        .well
+                            img(alt=d.title, src=d.pic)
+                            p.thicker #{d.title} 
+                            span #{d.userId}
+                            a.text-right(data-toggle="modal" href="/donate/"+ d.itemId class="btn btn-primary pull-right") View
+                            br
+                            br
                     
     
     
 
-    script(src='/js/artlist.js')
+        script(src='/js/artlist.js')

@@ -1,16 +1,16 @@
 extends ../layout
 
 block content
-  .page-header
-    h3 Submit Artwork
-    .alert.alert-danger.fade.in
+  h3.text-center Submit Art
+  .alert.alert-danger.fade.in(style="display: none")
         div
   form.form-horizontal(id='submitart', action='/submitartwork', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
+    img(id="imagePreview", width="200px", height="200px", class="img-rounded center-block")
     .form-group
-      label.col-sm-3.control-label(for='title') Title
+      label.col-sm-3.control-label(for='title') Name of Artwork
       .col-sm-7
-        input.form-control(type='text', name='title', id='title', value="", placeholder="title", required)
+        input.form-control(type='text', name='title', id='title', value="", placeholder="Title", required)
     .form-group(id="uploadform")
       label.col-sm-3.control-label(for='artwork') File
       .col-sm-7
@@ -18,7 +18,7 @@ block content
         input.form-control(type='hidden', name='artworkbytes', id='artworkbytes')
     .form-group
             .col-sm-offset-3.col-sm-4
-             a(data-toggle="modal" href="#passwordModal" class="btn btn-primary") Submit
+              a(data-toggle="modal" href="#passwordModal" class="btn btn-primary") Upload
 
     include ../partials/passwordconfirm
 
