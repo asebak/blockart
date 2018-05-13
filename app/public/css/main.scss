@@ -84,6 +84,46 @@ textarea {
   margin-right: 6px;
 }
 
+
+.well {
+  background-color: white !important
+}
+.bspText{
+  background: none !important;
+  padding: 2px !important;
+}
+.form-control:focus{
+  border-color: #1bcedf !important;
+}
+
+a#submitArt.btn-primary {
+  color: #1bcedf;
+  background-color: white !important;
+  border-color: #1bcedf !important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1bcedf !important;
+  border-color: #1bcedf !important;
+}
+a#upload_link{
+  color: #1bcedf !important;
+}
 #upload{
   display:none
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 15px;
+}
+
+p.thicker {
+  font-weight: 900;
 }
